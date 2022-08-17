@@ -19,4 +19,14 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+
+    <style name="Theme.TablingToolbar" parent="Theme.AppCompat.NoActionBar">
+        <item name="toolbarNavigationButtonStyle">@style/ToolBarNavigationButtonStyle</item>
+    </style>
+
+    <style name="ToolBarNavigationButtonStyle" parent="@style/Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="android:minWidth">0dp</item>
+        <item name="minWidth">0dp</item>
+    </style>
+
 </resources>
