@@ -25,7 +25,7 @@ import javax.net.ssl.SSLContext
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-    const val DOMAIN ="https://my-json-server.typicode.com/tabling/tabling_mobile_test"
+    const val DOMAIN ="https://my-json-server.typicode.com/tabling/tabling_mobile_test/"
 
     @Singleton
     @Provides

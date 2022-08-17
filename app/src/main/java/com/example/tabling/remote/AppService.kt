@@ -5,10 +5,10 @@ import retrofit2.http.GET
 
 interface AppService {
 
-    @GET("/save")
+    @GET("save")
     suspend fun getShopList(): ShopListResponse
 
-    @GET("/recent")
+    @GET("recent")
     suspend fun getRecentShopList(): ShopListResponse
 
 }
