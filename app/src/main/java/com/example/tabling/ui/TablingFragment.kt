@@ -7,13 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.tabling.databinding.FragTablingBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TablingFragment : Fragment() {
 
     private var _binding: FragTablingBinding? = null
 
     private val binding get() = _binding!!
-
 
     private lateinit var tabAdapter: TabAdapter
 
