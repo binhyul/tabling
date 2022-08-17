@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/TablingFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.tabling.ui.FirstFragment"
+        android:id="@+id/TablingFragment"
+        android:name="com.example.tabling.ui.TablingFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/frag_tabling">
     </fragment>
 </navigation>
