@@ -56,7 +56,6 @@ dependencies {
     implementation(Deps.Navigation.navUI)
     implementation(Deps.Hilt.hiltAndroid)
     kapt(Deps.Hilt.hiltAndroidCompiler)
-    implementation(Deps.Paging.runtime)
     implementation(Deps.Android.X.lifecycleRuntime)
 
     implementation(Deps.glide)

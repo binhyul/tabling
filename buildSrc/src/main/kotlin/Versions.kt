@@ -21,8 +21,6 @@ object Versions {
 
     const val kotlinVersion = "1.7.0"
 
-    const val pagingVersion = "3.1.1"
-
     const val materialVersion = "1.4.0"
 
     const val lifecycleVersion = "2.5.0"

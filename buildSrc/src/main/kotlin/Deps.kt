@@ -14,10 +14,6 @@ object Deps {
         const val material = "com.google.android.material:material:${Versions.materialVersion}"
     }
 
-    object Paging {
-        const val runtime = "androidx.paging:paging-runtime:${Versions.pagingVersion}"
-    }
-
     object Network {
         const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofitVersion}"
         const val retrofitConverter =
