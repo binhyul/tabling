@@ -13,4 +13,11 @@
     <string name="quick_booking_tag">즉시예약</string>
     <string name="remote_waiting_tag">원격줄서기</string>
 
+    <string name="no_waiting">대기 없음</string>
+    <string name="waiting_team">대기 %1$d팀</string>
+
+
+    <string name="shop_rating">%1$s (%2$s)</string>
+    <string name="shop_review_count_over">300+</string>
+
 </resources>

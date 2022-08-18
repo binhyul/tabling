@@ -16,12 +16,14 @@ class ShopView @JvmOverloads constructor(
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
     data class State(
-        val categories : List<String>,
+        val category: String,
         val title: String,
         val thumbnail: String,
-        val rating : Float,
-        val place : String,
-        val tags : List<String>?
+        val rating: String,
+        val reviewCount: Int,
+        val place: String,
+        val waitingTeam: Int,
+        val tags: List<String>?
     )
 
     private val binding: ShopBinding =
@@ -31,8 +33,26 @@ class ShopView @JvmOverloads constructor(
         foreground = AppCompatResources.getDrawable(context, R.drawable.bg_selectable_item)
     }
 
-    fun setState(state: State) {
+    fun render(state: State) {
+        binding.tvCategory.text = state.category
         binding.ivImg.loadUrlImage(state.thumbnail)
         binding.tvTitle.text = state.title
+        binding.tvPlace.text = state.place
+
+        val reviewCountText = if (state.reviewCount > 300) {
+            resources.getString(R.string.shop_review_count_over)
+        } else {
+            state.reviewCount.toString()
+        }
+        binding.tvRating.text =
+            resources.getString(R.string.shop_rating, state.rating, reviewCountText)
+
+
+        val waitingTeamNotification = if (state.waitingTeam == 0) {
+            resources.getString(R.string.no_waiting)
+        } else {
+            resources.getString(R.string.waiting_team, state.waitingTeam)
+        }
+        binding.tvWaiting.text = waitingTeamNotification
     }
 }
