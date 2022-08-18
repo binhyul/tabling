@@ -1,6 +1,7 @@
 package com.example.tabling.remote.source
 
-import com.example.tabling.remote.ShopItemModel
+import com.example.tabling.remote.model.ShopItemModel
+
 
 interface AppRemoteDataSource {
 

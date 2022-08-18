@@ -1,6 +1,6 @@
 package com.example.tabling.data
 
-import com.example.tabling.remote.ShopItemModel
+import com.example.tabling.remote.model.ShopItemModel
 
 interface AppRepository {
 

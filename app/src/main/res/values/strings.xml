@@ -9,4 +9,8 @@
      <string name="save_tab">저장</string>
      <string name="recent_tab">최근본</string>
      <string name="like_tab">찜한</string>
+
+    <string name="quick_booking_tag">즉시예약</string>
+    <string name="remote_waiting_tag">원격줄서기</string>
+
 </resources>
