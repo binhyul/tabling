@@ -21,7 +21,7 @@ class ShopView @JvmOverloads constructor(
         val thumbnail: String,
         val rating : Float,
         val place : String,
-        val tags : List<String>
+        val tags : List<String>?
     )
 
     private val binding: ShopBinding =

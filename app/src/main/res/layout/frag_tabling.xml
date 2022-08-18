@@ -40,17 +40,21 @@
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="57dp"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:tabGravity="fill"
-            app:tabMinWidth="0dp"
-            app:tabMaxWidth="0dp"
-            app:tabPaddingTop="14dp"
-            app:tabPaddingEnd="20dp"
             android:paddingStart="20dp"
-            android:paddingEnd="0dp"
-            app:tabPaddingStart="20dp"
+            android:paddingEnd="20dp"
+            app:layout_scrollFlags="enterAlways"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/black"
+            app:tabMaxWidth="0dp"
+            app:tabMinWidth="0dp"
+            app:tabMode="scrollable"
             app:tabPaddingBottom="14dp"
-            app:tabMode="scrollable" />
+            app:tabPaddingEnd="20dp"
+            app:tabPaddingStart="20dp"
+            app:tabPaddingTop="14dp"
+            app:tabSelectedTextColor="@color/black"
+            app:tabTextAppearance="@style/Typography.Tabling.TabText"
+            app:tabTextColor="@color/black_opacity" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
