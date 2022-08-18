@@ -1,12 +1,19 @@
 package com.example.tabling.component
 
 import android.content.Context
+import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.example.tabling.R
 import com.example.tabling.databinding.ShopBinding
+import com.example.tabling.databinding.ViewShopTagBinding
 import com.example.tabling.loadUrlImage
 
 class ShopView @JvmOverloads constructor(
@@ -29,8 +36,18 @@ class ShopView @JvmOverloads constructor(
     private val binding: ShopBinding =
         ShopBinding.inflate(LayoutInflater.from(context), this)
 
+    private val tagAdapter = ShopTagAdapter()
+
     init {
         foreground = AppCompatResources.getDrawable(context, R.drawable.bg_selectable_item)
+        binding.rvTag.adapter = tagAdapter
+        binding.rvTag.addItemDecoration(
+            ShopTagComponentItemDecoration(
+                resources.getDimensionPixelOffset(
+                    R.dimen.shop_tag_view_offset
+                )
+            )
+        )
     }
 
     fun render(state: State) {
@@ -54,5 +71,69 @@ class ShopView @JvmOverloads constructor(
             resources.getString(R.string.waiting_team, state.waitingTeam)
         }
         binding.tvWaiting.text = waitingTeamNotification
+        tagAdapter.submitList(state.tags)
     }
+
+
+    private class ShopTagAdapter :
+        ListAdapter<String, ShopTagViewHolder>(object : DiffUtil.ItemCallback<String>() {
+            override fun areItemsTheSame(
+                oldItem: String,
+                newItem: String
+            ): Boolean {
+                return oldItem == newItem
+            }
+
+            override fun areContentsTheSame(
+                oldItem: String,
+                newItem: String
+            ): Boolean {
+                return oldItem == newItem
+            }
+        }) {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShopTagViewHolder {
+            return ShopTagViewHolder(parent)
+        }
+
+        override fun onBindViewHolder(holder: ShopTagViewHolder, position: Int) {
+            val item = getItem(position)
+            holder.bind(item)
+        }
+    }
+
+
+    private class ShopTagViewHolder(
+        parent: ViewGroup,
+    ) : RecyclerView.ViewHolder(
+        ViewShopTagBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        ).root
+    ) {
+
+        private val binding = ViewShopTagBinding.bind(itemView)
+
+        fun bind(tag: String) {
+            with(binding.root) {
+                text = tag
+            }
+        }
+
+    }
+
+
+    private class ShopTagComponentItemDecoration(private val space: Int) :
+        RecyclerView.ItemDecoration() {
+        override fun getItemOffsets(
+            outRect: Rect,
+            view: View,
+            parent: RecyclerView,
+            state: RecyclerView.State
+        ) {
+            outRect.right = space
+        }
+    }
+
+
 }
