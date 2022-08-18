@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tabling.component.ShopView
 import com.example.tabling.databinding.ViewShopBinding
 
 class ShopAdapter :
@@ -48,6 +49,20 @@ class ShopViewHolder(
 
     fun bind(model : ShopModel){
         with(binding.root){
+            render(
+                ShopView.State(
+                    model.category,
+                    model.title,
+                    model.thumbnail,
+                    model.rating.toString(),
+                    model.reviewCount,
+                    model.place,
+                    model.waitingTeamCount,
+                    model.tagStringRes?.map {
+                        resources.getString(it)
+                    }
+                )
+            )
         }
     }
 
