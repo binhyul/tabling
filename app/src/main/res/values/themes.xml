@@ -29,4 +29,9 @@
         <item name="minWidth">0dp</item>
     </style>
 
+    <style name="shop_thumbnail_roundedCorners" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">6dp</item>
+    </style>
+
 </resources>

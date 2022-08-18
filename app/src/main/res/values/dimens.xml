@@ -1,3 +1,4 @@
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="shop_tag_horizontal_padding">4dp</dimen>
+    <dimen name="shop_tag_vertical_padding">3dp</dimen>
 </resources>
