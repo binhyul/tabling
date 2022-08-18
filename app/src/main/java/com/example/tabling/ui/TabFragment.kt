@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.example.tabling.R
 import com.example.tabling.databinding.FragTabBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,6 +35,13 @@ class TabFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.rvTabItems.adapter = shopAdapter
+        binding.rvTabItems.addItemDecoration(
+            ShopComponentItemDecoration(
+                resources.getDimensionPixelOffset(
+                    R.dimen.shop_view_offset
+                )
+            )
+        )
 
         val tabType: TabType = arguments?.getParcelable(TYPE) ?: TabType.SAVE
         viewModel.loadTabData(tabType)

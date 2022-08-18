@@ -1,8 +1,11 @@
 package com.example.tabling.ui
 
+import android.graphics.Rect
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tabling.component.ShopView
@@ -66,4 +69,24 @@ class ShopViewHolder(
         }
     }
 
+}
+
+
+
+ class ShopComponentItemDecoration(private val space: Int) :
+    RecyclerView.ItemDecoration() {
+    override fun getItemOffsets(
+        outRect: Rect,
+        view: View,
+        parent: RecyclerView,
+        state: RecyclerView.State
+    ) {
+
+        val orientation = (parent.layoutManager as LinearLayoutManager).orientation
+        if (orientation == RecyclerView.VERTICAL) {
+            outRect.bottom = space
+        } else {
+            outRect.right = space
+        }
+    }
 }
