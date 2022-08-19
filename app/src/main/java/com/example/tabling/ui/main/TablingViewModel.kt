@@ -1,5 +1,6 @@
 package com.example.tabling.ui.main
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.tabling.domain.LoadTabDataUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel

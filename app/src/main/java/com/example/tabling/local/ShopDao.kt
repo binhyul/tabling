@@ -15,6 +15,9 @@ interface ShopDao {
     @Query("SELECT * FROM shop")
     fun getShopList(): List<ShopEntity>
 
+    @Query("SELECT * FROM shop WHERE id = :id")
+    fun getShop(id: Int): ShopEntity?
+
     @Query("DELETE FROM shop WHERE id = :id")
     fun deleteShop(id: Int)
 

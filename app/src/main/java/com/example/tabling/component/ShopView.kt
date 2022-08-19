@@ -30,6 +30,7 @@ class ShopView @JvmOverloads constructor(
         val reviewCount: Int,
         val place: String,
         val waitingTeam: Int,
+        val like: Boolean,
         val tags: List<String>?
     )
 
@@ -71,6 +72,13 @@ class ShopView @JvmOverloads constructor(
             resources.getString(R.string.waiting_team, state.waitingTeam)
         }
         binding.tvWaiting.text = waitingTeamNotification
+        binding.ivLike.setImageResource(
+            if (state.like) {
+                R.drawable.ic_heart_filled_24
+            } else {
+                R.drawable.ic_heart_empty_24
+            }
+        )
         tagAdapter.submitList(state.tags)
     }
 

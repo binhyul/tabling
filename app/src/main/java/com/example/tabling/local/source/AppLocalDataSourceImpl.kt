@@ -9,6 +9,8 @@ class AppLocalDataSourceImpl @Inject constructor(
 ) : AppLocalDataSource {
     override suspend fun getLikeShopList(): List<ShopEntity> = shopDao.getShopList()
 
+    override suspend fun findShop(id: Int): ShopEntity? = shopDao.getShop(id)
+
     override suspend fun likeShop(shop: ShopEntity) = shopDao.insertShop(shop)
 
     override suspend fun unLikeShop(id: Int) = shopDao.deleteShop(id)

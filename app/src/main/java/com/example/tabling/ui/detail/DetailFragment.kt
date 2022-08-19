@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import com.example.tabling.R
 import com.example.tabling.databinding.FragDetailBinding
 import com.example.tabling.loadUrlImage
+import com.example.tabling.onThrottleClick
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -44,6 +45,18 @@ class DetailFragment : Fragment() {
             }
             binding.tvRating.text =
                 resources.getString(R.string.shop_rating, it.rating.toString(), reviewCountText)
+
+            binding.ivLike.setImageResource(
+                if (it.like) {
+                    R.drawable.ic_heart_filled_24
+                } else {
+                    R.drawable.ic_heart_empty_24
+                }
+            )
+        }
+
+        binding.ivLike.onThrottleClick {
+            viewModel.onClickLike()
         }
     }
 

@@ -25,18 +25,18 @@ data class ShopItemModel(
     @SerializedName("waitingCount") val waitingCount: Int?
 )
 
-fun getShopModelTags(model: ShopItemModel): List<Int> {
+fun getShopModelTags(isQuickBooking: Boolean?, isRemoteWaiting: Boolean?): List<Int> {
     val tagStringRes: MutableList<Int> = mutableListOf()
-    model.isQuickBooking?.let {
+    isQuickBooking?.let {
         if (it) tagStringRes.add(R.string.quick_booking_tag)
     }
-    model.isRemoteWaiting?.let {
+    isRemoteWaiting?.let {
         if (it) tagStringRes.add(R.string.remote_waiting_tag)
     }
     return tagStringRes
 }
 
-fun ShopItemModel.toEntity() = ShopModel(
+fun ShopItemModel.toEntity(like: Boolean) = ShopModel(
     id = id ?: throw IllegalStateException("shop id is not nullable"),
     title = restaurantName.orEmpty(),
     thumbnail = thumbnail.orEmpty(),
@@ -45,5 +45,6 @@ fun ShopItemModel.toEntity() = ShopModel(
     place = summaryAddress.orEmpty(),
     category = classification.orEmpty(),
     waitingTeamCount = waitingCount ?: 0,
-    tagStringRes = getShopModelTags(this)
+    tagStringRes = getShopModelTags(isQuickBooking, isRemoteWaiting),
+    like = like
 )

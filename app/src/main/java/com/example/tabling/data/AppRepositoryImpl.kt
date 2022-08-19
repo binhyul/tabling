@@ -17,6 +17,8 @@ class AppRepositoryImpl @Inject constructor(
 
     override suspend fun getLikeShopList(): List<ShopEntity> = localDataSource.getLikeShopList()
 
+    override suspend fun findShop(id: Int): ShopEntity? = localDataSource.findShop(id)
+
     override suspend fun likeShop(shop: ShopEntity) = localDataSource.likeShop(shop)
 
     override suspend fun unLikeShop(id: Int) = localDataSource.unLikeShop(id)

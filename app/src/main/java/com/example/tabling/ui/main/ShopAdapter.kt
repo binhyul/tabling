@@ -25,7 +25,10 @@ class ShopAdapter(private val itemController: ShopItemController) :
             oldItem: ShopModel,
             newItem: ShopModel
         ): Boolean {
-            return oldItem.title == newItem.title
+            return oldItem.title == newItem.title && oldItem.like == newItem.like && oldItem.reviewCount == newItem.reviewCount
+                    && oldItem.tagStringRes?.size == newItem.tagStringRes?.size
+                    && oldItem.waitingTeamCount == newItem.waitingTeamCount
+                    && oldItem.rating == newItem.rating
         }
     }) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShopViewHolder {
@@ -63,6 +66,7 @@ class ShopViewHolder(
                     model.reviewCount,
                     model.place,
                     model.waitingTeamCount,
+                    model.like,
                     model.tagStringRes?.map {
                         resources.getString(it)
                     }
