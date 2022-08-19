@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.tabling.R
 import com.example.tabling.databinding.FragTabBinding
+import com.example.tabling.ui.detail.DetailFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

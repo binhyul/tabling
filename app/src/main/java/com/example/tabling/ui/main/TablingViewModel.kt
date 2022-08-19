@@ -29,9 +29,7 @@ class TablingViewModel @Inject constructor(
 
     init {
         onSelectTab(TabType.SAVE)
-        loadTabData(TabType.SAVE)
-        loadTabData(TabType.RECENT)
-        loadTabData(TabType.LIKE)
+        refreshAllTabs()
     }
 
     fun tabItems(tabType: TabType) = when (tabType) {
@@ -60,6 +58,12 @@ class TablingViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun refreshAllTabs(){
+        loadTabData(TabType.SAVE)
+        loadTabData(TabType.RECENT)
+        loadTabData(TabType.LIKE)
     }
 
     fun onSelectTab(tabType: TabType) {

@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.example.tabling.databinding.FragTablingBinding
+import com.example.tabling.getNavigationResultLiveData
+import com.example.tabling.removeNavigationResultLiveData
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -62,10 +64,21 @@ class TablingFragment : Fragment() {
             }
         })
 
+        val result = getNavigationResultLiveData<Boolean>(KEY_REFRESH_REQUEST)
+        result?.observe(viewLifecycleOwner) {
+            if (it) {
+                removeNavigationResultLiveData<Boolean>(KEY_REFRESH_REQUEST)
+                viewModel.refreshAllTabs()
+            }
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        const val KEY_REFRESH_REQUEST = "request_select_season"
     }
 }

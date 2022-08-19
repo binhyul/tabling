@@ -10,6 +10,8 @@ import com.example.tabling.R
 import com.example.tabling.databinding.FragDetailBinding
 import com.example.tabling.loadUrlImage
 import com.example.tabling.onThrottleClick
+import com.example.tabling.setNavigationResult
+import com.example.tabling.ui.main.TablingFragment.Companion.KEY_REFRESH_REQUEST
 import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -64,6 +66,7 @@ class DetailFragment : Fragment() {
 
         binding.ivLike.onThrottleClick {
             viewModel.onClickLike()
+            setNavigationResult(true, KEY_REFRESH_REQUEST)
         }
     }
 
@@ -71,4 +74,6 @@ class DetailFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }
