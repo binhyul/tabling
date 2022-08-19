@@ -1,4 +1,4 @@
-package com.example.tabling.ui
+package com.example.tabling.ui.main
 
 import android.graphics.Rect
 import android.view.LayoutInflater
@@ -10,8 +10,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tabling.component.ShopView
 import com.example.tabling.databinding.ViewShopBinding
+import com.example.tabling.onThrottleClick
 
-class ShopAdapter :
+class ShopAdapter(private val itemController: ShopItemController) :
     ListAdapter<ShopModel, ShopViewHolder>(object : DiffUtil.ItemCallback<ShopModel>() {
         override fun areItemsTheSame(
             oldItem: ShopModel,
@@ -28,7 +29,7 @@ class ShopAdapter :
         }
     }) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShopViewHolder {
-        return ShopViewHolder(parent)
+        return ShopViewHolder(parent,itemController)
     }
 
     override fun onBindViewHolder(holder: ShopViewHolder, position: Int) {
@@ -40,6 +41,7 @@ class ShopAdapter :
 
 class ShopViewHolder(
     parent: ViewGroup,
+    private val itemController: ShopItemController
 ) : RecyclerView.ViewHolder(
     ViewShopBinding.inflate(
         LayoutInflater.from(parent.context),
@@ -50,8 +52,8 @@ class ShopViewHolder(
 
     private val binding = ViewShopBinding.bind(itemView)
 
-    fun bind(model : ShopModel){
-        with(binding.root){
+    fun bind(model: ShopModel) {
+        with(binding.root) {
             render(
                 ShopView.State(
                     model.category,
@@ -66,14 +68,16 @@ class ShopViewHolder(
                     }
                 )
             )
+            onThrottleClick {
+                itemController.clickShop(model)
+            }
         }
     }
 
 }
 
 
-
- class ShopComponentItemDecoration(private val space: Int) :
+class ShopComponentItemDecoration(private val space: Int) :
     RecyclerView.ItemDecoration() {
     override fun getItemOffsets(
         outRect: Rect,

@@ -2,8 +2,8 @@ package com.example.tabling.domain
 
 import com.example.tabling.data.AppRepository
 import com.example.tabling.remote.model.toEntity
-import com.example.tabling.ui.ShopModel
-import com.example.tabling.ui.TabType
+import com.example.tabling.ui.main.ShopModel
+import com.example.tabling.ui.main.TabType
 import javax.inject.Inject
 
 

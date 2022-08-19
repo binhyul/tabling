@@ -1,4 +1,4 @@
-package com.example.tabling.ui
+package com.example.tabling.ui.main
 
 import android.os.Parcelable
 import androidx.annotation.IdRes

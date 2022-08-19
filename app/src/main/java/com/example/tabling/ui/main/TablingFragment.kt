@@ -1,4 +1,4 @@
-package com.example.tabling.ui
+package com.example.tabling.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater

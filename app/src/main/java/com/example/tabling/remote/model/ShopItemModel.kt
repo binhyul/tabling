@@ -1,7 +1,7 @@
 package com.example.tabling.remote.model
 
 import com.example.tabling.R
-import com.example.tabling.ui.ShopModel
+import com.example.tabling.ui.main.ShopModel
 import com.google.gson.annotations.SerializedName
 
 

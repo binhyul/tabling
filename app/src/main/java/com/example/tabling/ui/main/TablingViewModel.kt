@@ -1,9 +1,6 @@
-package com.example.tabling.ui
+package com.example.tabling.ui.main
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.tabling.domain.LoadTabDataUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -62,7 +59,6 @@ class TablingViewModel @Inject constructor(
     fun onSelectTab(tabType: TabType) {
         savedStateHandle[SELECTED_TAB] = tabType
     }
-
 
     companion object {
         const val SELECTED_TAB = "selected_tab"

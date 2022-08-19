@@ -1,4 +1,4 @@
-package com.example.tabling.ui
+package com.example.tabling.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.tabling.R
 import com.example.tabling.databinding.FragTabBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,7 +22,14 @@ class TabFragment : Fragment() {
         requireParentFragment()
     })
 
-    private val shopAdapter = ShopAdapter()
+    private val shopItemController = object : ShopItemController {
+        override fun clickShop(shopModel: ShopModel) {
+            val action = TablingFragmentDirections.actionTablingFragmentToDetailFragment(shopModel)
+            findNavController().navigate(action)
+        }
+    }
+
+    private val shopAdapter = ShopAdapter(shopItemController)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,7 +54,7 @@ class TabFragment : Fragment() {
         val tabType: TabType = arguments?.getParcelable(TYPE) ?: TabType.SAVE
         viewModel.loadTabData(tabType)
 
-        viewModel.tabItems(tabType).observe(viewLifecycleOwner){
+        viewModel.tabItems(tabType).observe(viewLifecycleOwner) {
             shopAdapter.submitList(it)
         }
     }

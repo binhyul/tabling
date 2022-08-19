@@ -1,4 +1,4 @@
-package com.example.tabling.ui
+package com.example.tabling.ui.main
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

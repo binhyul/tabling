@@ -7,8 +7,19 @@
 
     <fragment
         android:id="@+id/TablingFragment"
-        android:name="com.example.tabling.ui.TablingFragment"
+        android:name="com.example.tabling.ui.main.TablingFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/frag_tabling">
+        <action
+            android:id="@+id/action_TablingFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.tabling.ui.detail.DetailFragment"
+        android:label="DetailFragment" >
+        <argument
+            android:name="model"
+            app:argType="com.example.tabling.ui.main.ShopModel" />
     </fragment>
 </navigation>
