@@ -38,5 +38,5 @@ object Versions {
     const val retrofitVersion = "2.6.4"
     const val okHttpVersion = "3.12.13"
     const val loopjAsyncVersion = "1.4.9"
-
+    const val roomVersion = "2.4.3"
 }

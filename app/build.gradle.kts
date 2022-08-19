@@ -72,6 +72,9 @@ dependencies {
 
     implementation(Deps.Network.loopjAsync)
 
+    implementation(Deps.Room.runtime)
+    implementation(Deps.Room.ktx)
+    kapt(Deps.Room.compiler)
 
     testImplementation(Deps.AndroidTest.junit)
     androidTestImplementation(Deps.AndroidTest.ext)
