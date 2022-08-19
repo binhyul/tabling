@@ -66,7 +66,7 @@
         app:layout_constraintStart_toEndOf="@+id/ivImg"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        tools:text="21 Guns" />
+        tools:text="육류가 길어진다육류가 길어진다육류가 길어진다육류가 길어진다" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -82,13 +82,14 @@
         app:layout_constraintStart_toStartOf="@+id/tvCategory"
         app:layout_constraintTop_toBottomOf="@+id/tvCategory"
         app:layout_constraintVertical_chainStyle="packed"
-        tools:text="21st ..." />
+        tools:text="가게이름이 길어진다가게이름이 길어진다가게이름이 길어진다" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clMeta"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/rvTag"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tvTitle"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
         app:layout_constraintVertical_chainStyle="packed">
@@ -98,24 +99,25 @@
             android:layout_width="14dp"
             android:layout_height="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvRating"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_rate_filled_20" />
 
         <TextView
             android:id="@+id/tvRating"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@android:color/black"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/ivStar"
             app:layout_constraintStart_toEndOf="@+id/ivStar"
+            app:layout_constraintEnd_toStartOf="@+id/tvPlace"
             app:layout_constraintTop_toTopOf="@+id/ivStar"
-            tools:text="4.3(1300)" />
+            tools:text="4.3(300+)" />
 
         <TextView
             android:id="@+id/tvPlace"
@@ -127,9 +129,10 @@
             android:textColor="@color/black_opacity"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/tvRating"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvRating"
             app:layout_constraintTop_toTopOf="@+id/tvRating"
-            tools:text="복산동" />
+            tools:text="복산동복산동복산동복산동복산동복산동복산동복산동복산동" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
