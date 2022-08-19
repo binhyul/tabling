@@ -15,7 +15,7 @@ class MainApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         setupUncaughtExceptionHandler()
-//        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 
     private fun showToast(text: String) {
