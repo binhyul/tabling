@@ -1,6 +1,6 @@
 <resources>
-    <dimen name="shop_tag_horizontal_padding">4dp</dimen>
-    <dimen name="shop_tag_vertical_padding">3dp</dimen>
+    <dimen name="shop_tag_horizontal_padding">6dp</dimen>
+    <dimen name="shop_tag_vertical_padding">4dp</dimen>
     <dimen name="shop_view_offset">20dp</dimen>
     <dimen name="shop_tag_view_offset">8dp</dimen>
 </resources>

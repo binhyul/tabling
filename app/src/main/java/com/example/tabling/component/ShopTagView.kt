@@ -29,7 +29,6 @@ class ShopTagView  @JvmOverloads constructor(
         a.recycle()
 
         background = AppCompatResources.getDrawable(context, R.drawable.bg_shop_tag)
-        setTextColor(ResourcesCompat.getColor(resources,R.color.blue,null))
         val horizontalPadding = resources.getDimensionPixelOffset(R.dimen.shop_tag_horizontal_padding)
         val verticalPadding = resources.getDimensionPixelOffset(R.dimen.shop_tag_vertical_padding)
         setPadding(horizontalPadding,verticalPadding,horizontalPadding,verticalPadding)
