@@ -43,7 +43,7 @@ class TabFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.loadingView.onLoading()
         binding.rvTabItems.adapter = shopAdapter
         binding.rvTabItems.addItemDecoration(
             ShopComponentItemDecoration(
@@ -55,6 +55,7 @@ class TabFragment : Fragment() {
 
         val tabType: TabType = arguments?.getParcelable(TYPE) ?: TabType.SAVE
         viewModel.tabItems(tabType).observe(viewLifecycleOwner) {
+            binding.loadingView.onEnd()
             shopAdapter.submitList(it)
         }
     }
