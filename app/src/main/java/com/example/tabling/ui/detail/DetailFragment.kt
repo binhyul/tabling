@@ -10,6 +10,7 @@ import com.example.tabling.R
 import com.example.tabling.databinding.FragDetailBinding
 import com.example.tabling.loadUrlImage
 import com.example.tabling.onThrottleClick
+import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,6 +21,12 @@ class DetailFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: DetailViewModel by viewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, true)
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.X, false)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
