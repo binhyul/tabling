@@ -1,7 +1,9 @@
 package com.example.tabling.ui.main
 
-import android.util.Log
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.tabling.domain.LoadTabDataUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -27,6 +29,9 @@ class TablingViewModel @Inject constructor(
 
     init {
         onSelectTab(TabType.SAVE)
+        loadTabData(TabType.SAVE)
+        loadTabData(TabType.RECENT)
+        loadTabData(TabType.LIKE)
     }
 
     fun tabItems(tabType: TabType) = when (tabType) {

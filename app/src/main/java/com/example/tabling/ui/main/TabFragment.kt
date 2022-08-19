@@ -53,8 +53,6 @@ class TabFragment : Fragment() {
         )
 
         val tabType: TabType = arguments?.getParcelable(TYPE) ?: TabType.SAVE
-        viewModel.loadTabData(tabType)
-
         viewModel.tabItems(tabType).observe(viewLifecycleOwner) {
             shopAdapter.submitList(it)
         }
