@@ -17,7 +17,7 @@ class LoadTabDataUseCase @Inject constructor(
 ) : UseCase<TabType, List<ShopModel>>() {
 
     override suspend fun execute(parameters: TabType): List<ShopModel> {
-        return withContext(Dispatchers.Default) {
+        return withContext(Dispatchers.IO) {
             when (parameters) {
                 TabType.SAVE -> appRepository.getShopList().map {
                     it.findLikeShop()

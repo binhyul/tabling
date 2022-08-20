@@ -13,7 +13,7 @@ class ClickLikeShopUseCase @Inject constructor(
 ) : UseCase<ShopModel, ShopModel>() {
 
     override suspend fun execute(parameters: ShopModel): ShopModel {
-        return withContext(Dispatchers.Default) {
+        return withContext(Dispatchers.IO) {
             if (!parameters.like) {
                 appRepository.likeShop(parameters.toEntity())
             } else {
